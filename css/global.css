@@ -18,6 +18,9 @@
     text-decoration: none;
 }
 
+
+/*========= Aqui começa o body ==========*/
+
 body {
     height: 100%;
     margin: 0;
@@ -27,15 +30,11 @@ body {
     background-image: linear-gradient(10deg, rgb(255, 255, 255) 37%, transparent 37%), linear-gradient(-60deg, rgb(255, 124, 118) 30%, transparent 30%);
 }
 
-hr {
-    position: absolute;
-    width: 710px;
-    height: 0px;
-    z-index: 1;
-    left: 30rem;
-    top: 50.5rem;
-    border: 1px solid #F6F5F5;
-}
+
+/*========= Aqui termina ==========*/
+
+
+/*========= Aqui começa o header ==========*/
 
 header {
     overflow: hidden;
@@ -43,6 +42,56 @@ header {
     background: #FFFFFF;
     height: 75px;
 }
+
+
+/*========= Aqui termina o header ==========*/
+
+
+/*========= Aqui começa o main ==========*/
+
+main {
+    position: absolute;
+    width: 808px;
+    height: auto;
+    left: 453px;
+    top: 361px;
+    background: rgb(255 255 255 / 0%);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+
+/*========= Aqui termina o main ==========*/
+
+
+/*========= Aqui começa hr. esse hr faz uma linha na horizontal ==========*/
+
+hr {
+    position: absolute;
+    width: 710px;
+    height: 0px;
+    z-index: 1;
+    left: 3rem;
+    top: 27.5rem;
+    border: 1px solid #F6F5F5;
+}
+
+
+/*========= Aqui termina o hr ==========*/
+
+.titulo {
+    position: absolute;
+    width: 710px;
+    height: 0px;
+    z-index: 1;
+    left: 0rem;
+    top: -3.5rem;
+    color: #FFFFFF;
+}
+
+
+/*========= Aqui faz referencia para o logo ==========*/
 
 a.logo {
     font-size: 24px;
@@ -53,6 +102,12 @@ a.logo {
     left: 9rem;
     top: 1.5rem;
 }
+
+
+/*========= Aqui termina tag logo ==========*/
+
+
+/*========= Aqui começa o menu ao lado do logo ==========*/
 
 #menu li {
     width: 25px;
@@ -70,6 +125,12 @@ a.logo {
     margin-top: -0.5rem;
     position: relative;
 }
+
+
+/*========= Aqui termina o menu ==========*/
+
+
+/*========= Aqui começa o compo de busca! ==========*/
 
 .search-wrap .search {
     position: relative;
@@ -91,6 +152,15 @@ a.logo {
     color: #5A4B49;
     position: relative;
 }
+
+
+/*========= Aqui termina o compo de busca! ==========*/
+
+
+/*========= Aqui começa a class compras ==========*/
+
+
+/*--------tudo da class de compras etá tudo aqui dentro! -------*/
 
 .compras a {
     left: 40rem;
@@ -142,7 +212,14 @@ a.logo {
 }
 
 
-/*-----Começando Sidebar------*/
+/*========= Aqui termina a class compras ==========*/
+
+
+/*========= Aqui começa a sidebar ==========*/
+
+
+/*----- ta tudo incluido aqui dentro, avatar, 
+Tags A, nav, ul, li e btn. ---------*/
 
 .sidebar {
     position: absolute;
@@ -285,19 +362,29 @@ a.logo {
     background-color: white!important;
 }
 
+
+/*========= Aqui termina sidebar==========*/
+
+
+/*========= Aqui começa o detalhamento de compras ==========*/
+
+
+/*--------------Nessa parte de código está tudo vinculado a parte de compras, notificações,
+valores das compras, notificação de transporte, quantos intens foram comprados e etc.---------*/
+
 .meusPedidos {
     position: absolute;
     width: 808px;
     height: 582px;
-    left: 453px;
-    top: 361px;
+    left: -1px;
+    top: 1px;
     background: #FFFFFF;
     border: 1px solid rgba(90, 75, 73, 0.1);
     box-sizing: border-box;
     border-radius: 4px;
 }
 
-.pedido {
+.pedido01 {
     position: relative;
     width: 50px;
     height: 50px;
@@ -305,6 +392,511 @@ a.logo {
     top: 30px;
     background: #82C91E;
     border-radius: 8px;
+}
+
+.notificacao {
+    position: absolute;
+    width: 808px;
+    height: 100px;
+    left: 0px;
+    top: 629px;
+    background: #FFFFFF;
+    border: 1px solid rgba(90, 75, 73, 0.1);
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.notificacao .pedido02 {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    left: 5%;
+    top: 23px;
+    background: #4C6EF5;
+    border-radius: 8px;
+    z-index: 1;
+}
+
+.notificacao .numeroPedido a {
+    position: absolute;
+    width: 95px;
+    height: 9px;
+    left: 129px;
+    top: 31px;
+    font-size: 14px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.008em;
+}
+
+.notificacao .status {
+    position: absolute;
+    width: 124px;
+    height: 9px;
+    left: 108px;
+    top: 53px;
+    font-size: 14px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.008em;
+    color: #4C6EF5;
+}
+
+.notificacao .numeroPedido i {
+    position: relative;
+    left: 13%;
+    right: 64.46%;
+    top: -23px;
+}
+
+.notificacao .dinheiro a {
+    position: relative;
+    width: 95px;
+    height: 9px;
+    left: 383px;
+    top: -37px;
+    font-size: 14px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.008em;
+    /* $cor-txt */
+    color: #5A4B49;
+    text-decoration: none;
+}
+
+.notificacao .itens a {
+    text-decoration: none;
+    position: relative;
+    width: 124px;
+    height: 9px;
+    left: 384px;
+    top: -27px;
+    font-size: 14px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.008em;
+    /* $cor-txt-claro2 */
+    color: #AEABAA;
+}
+
+.notificacao .detalhes ul {
+    list-style-type: none;
+    text-decoration: none;
+    position: relative;
+    width: 213px;
+    height: 50px;
+    left: 521px;
+    top: -81px;
+    background: rgb(247, 246, 246, 0.6);
+    border-radius: 4px;
+}
+
+.notificacao02 {
+    position: absolute;
+    width: 808px;
+    height: 100px;
+    left: 0px;
+    top: 750px;
+    background: #FFFFFF;
+    border: 1px solid rgba(90, 75, 73, 0.1);
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.notificacao02 .pedido02 {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    left: 5%;
+    top: 23px;
+    background: #7950F2;
+    border-radius: 8px;
+    z-index: 1;
+}
+
+.notificacao02 .numeroPedido a {
+    position: absolute;
+    width: 95px;
+    height: 9px;
+    left: 129px;
+    top: 31px;
+    font-size: 14px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.008em;
+}
+
+.notificacao02 .status {
+    position: absolute;
+    width: 124px;
+    height: 9px;
+    left: 108px;
+    top: 53px;
+    font-size: 14px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.008em;
+    color: #7950F2;
+}
+
+.notificacao02 .numeroPedido i {
+    position: relative;
+    left: 13%;
+    right: 64.46%;
+    top: -23px;
+}
+
+.notificacao02 .dinheiro a {
+    position: relative;
+    width: 95px;
+    height: 9px;
+    left: 383px;
+    top: -37px;
+    font-size: 14px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.008em;
+    /* $cor-txt */
+    color: #5A4B49;
+    text-decoration: none;
+}
+
+.notificacao02 .itens a {
+    text-decoration: none;
+    position: relative;
+    width: 124px;
+    height: 9px;
+    left: 384px;
+    top: -27px;
+    font-size: 14px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.008em;
+    /* $cor-txt-claro2 */
+    color: #AEABAA;
+}
+
+.notificacao02 .detalhes ul {
+    list-style-type: none;
+    text-decoration: none;
+    position: relative;
+    width: 213px;
+    height: 50px;
+    left: 521px;
+    top: -81px;
+    background: rgb(247, 246, 246, 0.6);
+    border-radius: 4px;
+}
+
+.notificacao03 {
+    position: absolute;
+    width: 808px;
+    height: 100px;
+    left: 0px;
+    top: 872px;
+    background: #FFFFFF;
+    border: 1px solid rgba(90, 75, 73, 0.1);
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.notificacao03 .pedido02 {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    left: 5%;
+    top: 23px;
+    background: #40C057;
+    border-radius: 8px;
+    z-index: 1;
+}
+
+.notificacao03 .numeroPedido a {
+    position: absolute;
+    width: 95px;
+    height: 9px;
+    left: 129px;
+    top: 31px;
+    font-size: 14px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.008em;
+}
+
+.notificacao03 .status {
+    position: absolute;
+    width: 124px;
+    height: 9px;
+    left: 108px;
+    top: 53px;
+    font-size: 14px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.008em;
+    color: #40C057;
+}
+
+.notificacao03 .numeroPedido i {
+    position: relative;
+    left: 13%;
+    right: 64.46%;
+    top: -23px;
+}
+
+.notificacao03 .dinheiro a {
+    position: relative;
+    width: 95px;
+    height: 9px;
+    left: 383px;
+    top: -37px;
+    font-size: 14px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.008em;
+    /* $cor-txt */
+    color: #5A4B49;
+    text-decoration: none;
+}
+
+.notificacao03 .itens a {
+    text-decoration: none;
+    position: relative;
+    width: 124px;
+    height: 9px;
+    left: 384px;
+    top: -27px;
+    font-size: 14px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.008em;
+    /* $cor-txt-claro2 */
+    color: #AEABAA;
+}
+
+.notificacao03 .detalhes ul {
+    list-style-type: none;
+    text-decoration: none;
+    position: relative;
+    width: 213px;
+    height: 50px;
+    left: 521px;
+    top: -81px;
+    background: rgb(247, 246, 246, 0.6);
+    border-radius: 4px;
+}
+
+.notificacao04 {
+    position: absolute;
+    width: 808px;
+    height: 100px;
+    left: 0px;
+    top: 994px;
+    background: #FFFFFF;
+    border: 1px solid rgba(90, 75, 73, 0.1);
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.notificacao04 .pedido02 {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    left: 5%;
+    top: 23px;
+    background: #20C997;
+    border-radius: 8px;
+    z-index: 1;
+}
+
+.notificacao04 .numeroPedido a {
+    position: absolute;
+    width: 95px;
+    height: 9px;
+    left: 129px;
+    top: 31px;
+    font-size: 14px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.008em;
+}
+
+.notificacao04 .status {
+    position: absolute;
+    width: 124px;
+    height: 9px;
+    left: 108px;
+    top: 53px;
+    font-size: 14px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.008em;
+    color: #20C997;
+}
+
+.notificacao04 .numeroPedido i {
+    position: relative;
+    left: 13%;
+    right: 64.46%;
+    top: -23px;
+}
+
+.notificacao04 .dinheiro a {
+    position: relative;
+    width: 95px;
+    height: 9px;
+    left: 383px;
+    top: -37px;
+    font-size: 14px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.008em;
+    /* $cor-txt */
+    color: #5A4B49;
+    text-decoration: none;
+}
+
+.notificacao04 .itens a {
+    text-decoration: none;
+    position: relative;
+    width: 124px;
+    height: 9px;
+    left: 384px;
+    top: -27px;
+    font-size: 14px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.008em;
+    /* $cor-txt-claro2 */
+    color: #AEABAA;
+}
+
+.notificacao04 .detalhes ul {
+    list-style-type: none;
+    text-decoration: none;
+    position: relative;
+    width: 213px;
+    height: 50px;
+    left: 521px;
+    top: -81px;
+    background: rgb(247, 246, 246, 0.6);
+    border-radius: 4px;
+}
+
+.notificacao05 {
+    position: absolute;
+    width: 808px;
+    height: 100px;
+    left: 0px;
+    top: 1118px;
+    background: #FFFFFF;
+    border: 1px solid rgba(90, 75, 73, 0.1);
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.notificacao05 .pedido02 {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    left: 5%;
+    top: 23px;
+    background: #FA5252;
+    border-radius: 8px;
+    z-index: 1;
+}
+
+.notificacao05 .numeroPedido a {
+    position: absolute;
+    width: 95px;
+    height: 9px;
+    left: 129px;
+    top: 31px;
+    font-size: 14px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.008em;
+}
+
+.notificacao05 .status {
+    position: absolute;
+    width: 124px;
+    height: 9px;
+    left: 108px;
+    top: 53px;
+    font-size: 14px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.008em;
+    color: #FA5252;
+}
+
+.notificacao05 .numeroPedido i {
+    position: relative;
+    left: 13%;
+    right: 64.46%;
+    top: -23px;
+}
+
+.notificacao05 .dinheiro a {
+    position: relative;
+    width: 95px;
+    height: 9px;
+    left: 383px;
+    top: -37px;
+    font-size: 14px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.008em;
+    /* $cor-txt */
+    color: #5A4B49;
+    text-decoration: none;
+}
+
+.notificacao05 .itens a {
+    text-decoration: none;
+    position: relative;
+    width: 124px;
+    height: 9px;
+    left: 384px;
+    top: -27px;
+    font-size: 14px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.008em;
+    /* $cor-txt-claro2 */
+    color: #AEABAA;
+}
+
+.notificacao05 .detalhes ul {
+    list-style-type: none;
+    text-decoration: none;
+    position: relative;
+    width: 213px;
+    height: 50px;
+    left: 521px;
+    top: -81px;
+    background: rgb(247, 246, 246, 0.6);
+    border-radius: 4px;
 }
 
 .svg {
@@ -351,6 +943,7 @@ a.logo {
     align-items: center;
     letter-spacing: -0.008em;
     color: #82C91E;
+    white-space: nowrap;
 }
 
 .cash-inco1 {
@@ -630,13 +1223,13 @@ a.logo {
 }
 
 
-/*-----------linha de progresso!----------*/
+/*========= Aqui começa a linha de progrsso  que esta dentro de minhas compras==========*/
 
 section {
     margin-bottom: 2rem;
-    margin-top: 30rem;
+    margin-top: 14rem;
     width: 43rem;
-    margin-left: 31rem;
+    margin-left: 3rem;
 }
 
 .progress-bar {
@@ -902,6 +1495,12 @@ a.data-hora5 {
     background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%208%208%22%3E%3Cpath%20fill%3D%22%23ed1c24%22%20d%3D%22M4%200l4%208H0z%22%2F%3E%3C%2Fsvg%3E');
 }
 
+
+/*========= Aqui termina a parte de progresso ==========*/
+
+
+/*========= Aqui começa a parte de confirmação do produto comprado ==========*/
+
 .confirmation {
     position: relative;
     width: 50px;
@@ -916,8 +1515,8 @@ a.data-hora5 {
     position: absolute;
     width: 72px;
     height: 72px;
-    left: 479px;
-    top: 721px;
+    left: 49px;
+    top: 341px;
     background: #000000;
     border-radius: 8px;
 }
@@ -926,8 +1525,8 @@ a.data-hora5 {
     position: absolute;
     width: 72px;
     height: 72px;
-    left: 479px;
-    top: 831px;
+    left: 49px;
+    top: 471px;
     background: #000000;
     border-radius: 8px;
 }
@@ -946,6 +1545,12 @@ a.data-hora5 {
     /* $cor-txt */
     color: #5A4B49;
 }
+
+
+/*========= Aqui termina a parte de confirmação ==========*/
+
+
+/*========= Aqui começa a tag sobre valores ==========*/
 
 .cash {
     position: absolute;
@@ -976,6 +1581,12 @@ a.data-hora5 {
     color: #AEABAA;
 }
 
+
+/*========= Aqui termina ==========*/
+
+
+/*========= Aqui começa a quantidade de produtos adquiridos ==========*/
+
 .unidade select {
     position: absolute;
     width: 154px;
@@ -1004,6 +1615,12 @@ a.data-hora5 {
     color: #5A4B49;
 }
 
+
+/*========= Aqui termina ==========*/
+
+
+/*========= Aqui aqui seleciona os tamanho P, M  ou G ==========*/
+
 .medidas select {
     position: absolute;
     width: 103px;
@@ -1016,6 +1633,12 @@ a.data-hora5 {
     background: #FFFFFF;
     border: 1px solid rgba(90, 75, 73, 0.1);
 }
+
+
+/*========= Aqui termina ==========*/
+
+
+/*========= Aqui a avaliação do produto ==========*/
 
 .avaliacao {
     position: absolute;
@@ -1047,14 +1670,93 @@ a.data-hora5 {
     color: #5A4B49;
 }
 
-@media screen and (max-width: 991px) {
-    .page-content {
-        width: 100vw;
-    }
+
+/*========= Aqui termina ==========*/
+
+
+/*========= Aqui a footer ==========*/
+
+.footer {
+    position: absolute;
+    right: 0px;
+    height: 10rem;
+    bottom: 0px;
+    left: 0px;
+    top: 112rem;
+    padding: 1rem;
+    background-color: #F8F9FA;
+    text-align: center;
 }
 
-@media screen and (max-width: 767px) {
-    .header-logo {
-        display: none;
-    }
+.footer div p {
+    position: absolute;
+    left: 13.23%;
+    right: 13.43%;
+    top: 56.35%;
+    bottom: 30.56%;
+    font-family: Archivo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 18px;
+    /* or 150% */
+    letter-spacing: -0.008em;
+    color: #000000;
 }
+
+.footer div h3 {
+    position: absolute;
+    left: 13.43%;
+    right: 77.13%;
+    top: 17%;
+    bottom: 71.03%;
+    font-family: Archivo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    /* or 171% */
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.008em;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.footer .cartoes i {
+    position: absolute;
+    left: 13.43%;
+    right: 84.11%;
+    top: 34.52%;
+    bottom: 56.43%;
+}
+
+.footer .siteblidado {
+    position: absolute;
+    left: 58.77%;
+    right: 34.62%;
+    top: 28.97%;
+    bottom: 60.32%;
+    background: url(../img/seal\ 1.png);
+    background-repeat: repeat-y;
+}
+
+.footer .reclameaqui {
+    position: absolute;
+    left: 68.49%;
+    right: 24.76%;
+    top: 25%;
+    bottom: 56.35%;
+    background: url(../img/reclame-aqui\ 1.png);
+    background-repeat: repeat-y;
+}
+
+.footer .comprasegura i {
+    position: absolute;
+    left: 78.34%;
+    right: 13.41%;
+    top: 25.4%;
+    bottom: 57.54%;
+}
+
+
+/*========= Aqui termina ==========*/

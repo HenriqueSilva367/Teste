@@ -5,1066 +5,188 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Document</title>
+    <link rel="stylesheet" href="./css/global.css">
 </head>
 <style>
-     :root {
-        --color-white: #82C91E;
-        --color-black: #333;
-        --color-gray: #75787b;
-        --color-gray-light: #bbb;
-        --color-gray-disabled: #e8e8e8;
-        --color-green: #82C91E;
-        --color-green-dark: #383;
-        --font-size-small: .75rem;
-        --font-size-default: .875rem;
-    }
+    /* Click open/close Dropdown in pure CSS */
     
-    hr {
-        position: absolute;
-        width: 710px;
-        height: 0px;
-        z-index: 1;
-        left: 30rem;
-        top: 32.4rem;
-        border: 1px solid #F6F5F5;
-    }
-    
-    .meusPedidos {
+    .tabs {
         position: relative;
-        width: 808px;
-        height: 582px;
-        left: -7px;
-        top: -199px;
+        clear: both;
+        margin: 50px;
+    }
+    
+    .tab {
+        float: left;
+        position: relative;
+        width: 214px;
+        height: 50px;
+    }
+    
+    .tab label {
+        background: rgba(247, 246, 246, 0.6);
+        border-radius: 4px;
+        padding: 10px 30px;
+        cursor: pointer;
+        text-align: center;
+        display: block;
+        position: relative;
+        left: 33rem;
+        top: -2.4rem;
+    }
+    
+    .tab label i {
+        position: relative;
+        font-style: normal;
+        font-size: 10px;
+        color: #aaa;
+        left: 1rem;
+    }
+    
+    .tab [type=radio] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        margin: 0;
+    }
+    
+    .content {
+        position: absolute;
+        top: 100%;
+        opacity: 0;
+        background: #FFFFFF;
+        height: 26rem;
+        width: 50rem;
         background: #FFFFFF;
         border: 1px solid rgba(90, 75, 73, 0.1);
         box-sizing: border-box;
         border-radius: 4px;
     }
     
-    .pedido {
-        position: relative;
-        width: 50px;
-        height: 50px;
-        left: 4%;
-        top: 30px;
-        background: #82C91E;
-        border-radius: 8px;
+    [type=radio]:checked~label {
+        opacity: 0;
+        z-index: 2;
     }
     
-    .svg {
+    [type=radio]:checked~label~.content {
+        z-index: 1;
+        opacity: 1;
+    }
+    
+    .close-tab {
         position: absolute;
-        width: 15.83px;
-        height: 15px;
-        left: 32%;
-        top: 16px;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
     
-    .numeroPedido a {
-        position: absolute;
-        width: 95px;
-        height: 9px;
-        left: 99px;
-        top: 10px;
-        font-size: 14px;
-        line-height: 15px;
-        display: flex;
-        align-items: center;
-        letter-spacing: -0.008em;
-        /* $cor-txt */
-        color: #5A4B49;
-        white-space: nowrap;
-        text-decoration: none;
-    }
-    
-    .numeroPedido i {
-        position: relative;
-        left: 144.79%;
-        right: 64.46%;
-        top: 6px;
-    }
-    
-    .status {
-        position: absolute;
-        width: 124px;
-        height: 9px;
-        left: 76px;
-        top: 30px;
-        font-size: 14px;
-        line-height: 15px;
-        display: flex;
-        align-items: center;
-        letter-spacing: -0.008em;
-        color: #82C91E;
-    }
-    
-    .cash-inco1 {
-        position: absolute;
-        width: 31px;
-        height: 31px;
-        left: 16.9rem;
-        top: 2.3rem;
-        background: #000000;
-        border: 2px solid #FFFFFF;
-        border-radius: 43.0556px;
-    }
-    
-    .cash-inco2 {
-        position: absolute;
-        width: 31px;
-        height: 31px;
-        left: 18.2rem;
-        top: 2.3rem;
-        background: #000000;
-        border: 2px solid #FFFFFF;
-        border-radius: 43.0556px;
-    }
-    
-    .dinheiro a {
-        position: relative;
-        width: 95px;
-        height: 9px;
-        left: 378px;
-        top: -12px;
-        font-size: 14px;
-        line-height: 15px;
-        display: flex;
-        align-items: center;
-        letter-spacing: -0.008em;
-        /* $cor-txt */
-        color: #5A4B49;
-        text-decoration: none;
-    }
-    
-    .itens a {
-        text-decoration: none;
-        position: relative;
-        width: 124px;
-        height: 9px;
-        left: 380px;
-        top: -3px;
-        font-size: 14px;
-        line-height: 15px;
-        display: flex;
-        align-items: center;
-        letter-spacing: -0.008em;
-        /* $cor-txt-claro2 */
-        color: #AEABAA;
-    }
-    
-    .detalhes ul {
-        list-style-type: none;
-        text-decoration: none;
-        position: relative;
-        width: 213px;
-        height: 50px;
-        left: 521px;
-        top: -60px;
+    .close-tab label {
         background: rgba(247, 246, 246, 0.6);
         border-radius: 4px;
     }
     
-    .detalhes li a {
-        list-style-type: none;
-        text-decoration: none;
-        position: relative;
-        width: 213px;
-        height: 50px;
-        left: 37px;
-        top: -1px;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 17px;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        letter-spacing: -0.008em;
-        /* $cor-txt */
-        color: #5A4B49;
-    }
-    
-    .detalhes i.icon {
-        position: relative;
-        left: 67.31%;
-        right: 17.74%;
-        top: -38px;
-        bottom: 77.29%;
-        white-space: nowrap;
-        text-decoration: none;
-        /* $cor-txt */
-    }
-    
-    .cards1 {
-        position: absolute;
-        width: 759px;
-        height: 80px;
-        left: 21px;
-        top: 98px;
-        background: rgba(250, 250, 250, 0.5);
-        border: 1px solid rgba(239, 237, 237, 0.5);
-        box-sizing: border-box;
-        border-radius: 4px;
-    }
-    
-    .icon-cards1 {
-        position: relative;
-        width: 18.44px;
-        height: 15.09px;
-        left: 34px;
-        top: 39px;
-    }
-    
-    .frete {
-        position: absolute;
-        width: 95px;
-        height: 9px;
-        left: 57px;
-        top: -7px;
-        font-size: 14px;
-        line-height: 15px;
-        display: flex;
-        align-items: center;
-        letter-spacing: -0.008em;
-        text-decoration: none;
-        color: #5A4B49;
-    }
-    
-    .valor {
-        position: absolute;
-        width: 57px;
-        height: 9px;
-        left: 57px;
-        top: 17px;
-        font-size: 14px;
-        line-height: 15px;
-        display: flex;
-        align-items: center;
-        letter-spacing: -0.008em;
-        text-decoration: none;
-        color: #AEABAA;
-    }
-    
-    .envio {
-        position: absolute;
-        width: 81px;
-        height: 22px;
-        left: 161px;
-        top: 46px;
-        border: 1px solid #EFEDED;
-        box-sizing: border-box;
-        border-radius: 4px;
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 12px;
-        line-height: 13px;
-        display: flex;
-        align-items: center;
-        text-align: center;
-    }
-    
-    .envio a {
-        text-decoration: none;
-        position: absolute;
-        width: 60px;
-        height: 11px;
-        left: 7px;
-        top: 2.9px;
-        align-items: center;
-        text-align: center;
-        color: #5A4B49;
-    }
-    
-    .formasPagamentos {
-        text-decoration: none;
-        position: relative;
-        white-space: nowrap;
-        width: 152px;
-        height: 9px;
-        left: 321px;
-        top: 13px;
-    }
-    
-    .valor1 {
-        position: absolute;
-        width: 95px;
-        height: 9px;
-        left: 28px;
-        top: -7px;
-        font-size: 14px;
-        line-height: 15px;
-        display: flex;
-        align-items: center;
-        letter-spacing: -0.008em;
-        text-decoration: none;
-        color: #5A4B49;
-    }
-    
-    .valor2 {
-        position: absolute;
-        width: 57px;
-        height: 9px;
-        left: 28px;
-        top: 17px;
-        font-size: 14px;
-        line-height: 15px;
-        display: flex;
-        align-items: center;
-        letter-spacing: -0.008em;
-        text-decoration: none;
-        color: #AEABAA;
-    }
-    
-    .entrega {
-        text-decoration: none;
-        position: relative;
-        white-space: nowrap;
-        width: 152px;
-        height: 9px;
-        left: 321px;
-        top: 13px;
-    }
-    
-    .valor3 {
-        position: absolute;
-        width: 57px;
-        height: 9px;
-        left: 218px;
-        top: -16px;
-        font-size: 14px;
-        line-height: 15px;
-        display: flex;
-        align-items: center;
-        letter-spacing: -0.008em;
-        text-decoration: none;
-        color: #AEABAA;
-    }
-    
-    .valor4 {
-        position: absolute;
-        width: 57px;
-        height: 9px;
-        left: 219px;
-        top: 7px;
-        font-size: 14px;
-        line-height: 15px;
-        display: flex;
-        align-items: center;
-        letter-spacing: -0.008em;
-        text-decoration: none;
-        color: #82C91E;
-    }
-    
-    .adicionar {
-        position: relative;
-        width: 50px;
-        height: 50px;
-        left: 683px;
-        top: -22px;
-        background: #FCFCFC;
-        border: 1px solid #EFEDED;
-        box-sizing: border-box;
-        border-radius: 8px;
-    }
-    
-    .adicionar a {
-        position: relative;
-        width: 50px;
-        height: 50px;
-        left: 16px;
-        top: 15px;
-    }
-    /*-----------linha de progresso!----------*/
-    
-    section {
-        margin-bottom: 2rem;
-        margin-top: -35rem;
-        width: 43rem;
-        margin-left: 3rem;
-    }
-    
-    .progress-bar {
-        display: flex;
-        justify-content: space-between;
-        list-style: none;
-        padding: 0;
-        margin: 0 0 1rem 0;
-    }
-    
-    .progress-bar li {
-        flex: 2;
-        position: relative;
-        padding: 0 0 14px 0;
-        line-height: 1.5;
-        color: #AEABAA;
-        font-weight: 600;
-        overflow: visible;
-        min-width: 0;
-        text-align: center;
-    }
-    
-    .progress-bar li a.state1 {
-        position: absolute;
-        width: 71px;
-        height: 21px;
-        left: -28px;
-        top: 50px;
-        font-size: 12px;
-        line-height: 12px;
-        /* or 100% */
-        display: flex;
-        align-items: center;
-        text-align: center;
-        letter-spacing: -0.008em;
-        /* $cor-txt-claro2 */
-        color: #AEABAA;
-    }
-    
-    a.state2 {
-        position: absolute;
-        width: 71px;
-        height: 21px;
-        left: 52px;
-        top: 50px;
-        font-size: 12px;
-        line-height: 12px;
-        /* or 100% */
-        display: flex;
-        align-items: center;
-        text-align: center;
-        letter-spacing: -0.008em;
-        /* $cor-txt-claro2 */
-        color: #AEABAA;
-    }
-    
-    a.state3 {
-        position: absolute;
-        width: 71px;
-        height: 21px;
-        left: 52px;
-        top: 50px;
-        font-size: 12px;
-        line-height: 12px;
-        /* or 100% */
-        display: flex;
-        align-items: center;
-        text-align: center;
-        letter-spacing: -0.008em;
-        /* $cor-txt-claro2 */
-        color: #AEABAA;
-    }
-    
-    a.state4 {
-        position: absolute;
-        width: 71px;
-        height: 21px;
-        left: 147px;
-        top: 50px;
-        font-size: 12px;
-        line-height: 12px;
-        /* or 100% */
-        display: flex;
-        align-items: center;
-        text-align: center;
-        letter-spacing: -0.008em;
-        /* $cor-txt-claro2 */
-        color: #AEABAA;
-    }
-    
-    a.data-hora1 {
-        position: absolute;
-        width: 59px;
-        height: 9px;
-        left: -17px;
-        top: 82px;
-        font-size: 10px;
-        line-height: 11px;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        letter-spacing: -0.008em;
-        /* $cor-txt */
-        color: #5A4B49;
-    }
-    
-    a.data-hora2 {
-        position: absolute;
-        width: 59px;
-        height: 9px;
-        left: 59px;
-        top: 82px;
-        font-size: 10px;
-        line-height: 11px;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        letter-spacing: -0.008em;
-        /* $cor-txt */
-        color: #5A4B49;
-    }
-    
-    a.data-hora3 {
-        position: absolute;
-        width: 59px;
-        height: 9px;
-        left: 59px;
-        top: 82px;
-        font-size: 10px;
-        line-height: 11px;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        letter-spacing: -0.008em;
-        /* $cor-txt */
-        color: #5A4B49;
-    }
-    
-    a.data-hora4 {
-        position: absolute;
-        width: 59px;
-        height: 9px;
-        left: 59px;
-        top: 82px;
-        font-size: 10px;
-        line-height: 11px;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        letter-spacing: -0.008em;
-        /* $cor-txt */
-        color: #5A4B49;
-    }
-    
-    a.data-hora5 {
-        position: absolute;
-        width: 59px;
-        height: 9px;
-        left: 155px;
-        top: 82px;
-        font-size: 10px;
-        line-height: 11px;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        letter-spacing: -0.008em;
-        /* $cor-txt */
-        color: #5A4B49;
-    }
-    
-    .progress-bar li:first-child,
-    .progress-bar li:last-child {
-        flex: 1;
-    }
-    
-    .progress-bar li:last-child {
-        text-align: right;
-    }
-    
-    .progress-bar li:before {
-        content: "";
-        display: block;
-        width: 8px;
-        height: 8px;
-        background-color: var(--color-gray-disabled);
-        border-radius: 50%;
-        border: 2px solid var(--color-white);
-        position: absolute;
-        left: calc(50% - 6px);
-        bottom: -7px;
+    [type=radio]:checked~label~.close-tab {
         z-index: 3;
-        transition: all .2s ease-in-out;
-    }
-    
-    .progress-bar li:first-child:before {
-        left: 0;
-    }
-    
-    .progress-bar li:last-child:before {
-        right: 0;
-        left: 6.7rem;
-    }
-    
-    .progress-bar span {
-        transition: opacity .3s ease-in-out;
-    }
-    
-    .progress-bar li:not(.is-active) span {}
-    
-    .progress-bar .is-complete:not(:first-child):after,
-    .progress-bar .is-active:not(:first-child):after {
-        content: "";
-        display: block;
-        width: 100%;
-        position: absolute;
-        bottom: -2px;
-        left: -50%;
-        z-index: 2;
-        border-bottom: 2px solid var(--color-green);
-    }
-    
-    .progress-bar li:last-child span {
-        width: 200%;
-        display: inline-block;
-        position: absolute;
-        left: -100%;
-    }
-    
-    .progress-bar .is-complete:last-child:after,
-    .progress-bar .is-active:last-child:after {
-        width: 200%;
-        left: -100%;
-    }
-    
-    .progress-bar .is-complete:before {
-        background-color: var(--color-green);
-    }
-    
-    .progress-bar .is-active:before,
-    .progress-bar li:hover:before,
-    .progress-bar .is-hovered:before {
-        background-color: var(--color-white);
-        border-color: var(--color-green);
-    }
-    
-    .x-ray .progress-bar,
-    .x-ray .progress-bar li {
-        border: 1px dashed red;
-    }
-    
-    .progress-bar .has-changes {
-        opacity: 1 !important;
-    }
-    
-    .progress-bar .has-changes:before {
-        content: "";
-        display: block;
-        width: 8px;
-        height: 8px;
-        position: absolute;
-        left: calc(50% - 4px);
-        bottom: -20px;
-        background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%208%208%22%3E%3Cpath%20fill%3D%22%23ed1c24%22%20d%3D%22M4%200l4%208H0z%22%2F%3E%3C%2Fsvg%3E');
-    }
-    
-    .confirmation {
-        position: relative;
-        width: 50px;
-        height: 50px;
-        left: 98%;
-        top: -41px;
-        background: #82C91E;
-        border-radius: 8px;
-    }
-    
-    .produto {
-        position: absolute;
-        width: 72px;
-        height: 72px;
-        left: 459px;
-        top: 436px;
-        background: #000000;
-        border-radius: 8px;
-    }
-    
-    .produto1 {
-        position: absolute;
-        width: 72px;
-        height: 72px;
-        left: 459px;
-        top: 540px;
-        background: #000000;
-        border-radius: 8px;
-    }
-    
-    .nome-Produto {
-        position: absolute;
-        width: 132px;
-        height: 9px;
-        left: 85px;
-        top: 6px;
-        font-size: 14px;
-        line-height: 15px;
-        display: flex;
-        align-items: center;
-        letter-spacing: -0.008em;
-        /* $cor-txt */
-        color: #5A4B49;
-    }
-    
-    .cash {
-        position: absolute;
-        width: 124px;
-        height: 9px;
-        left: 86px;
-        top: 26px;
-        font-size: 14px;
-        line-height: 15px;
-        display: flex;
-        align-items: center;
-        letter-spacing: -0.008em;
-        color: #5A4B49;
-    }
-    
-    .cash-item {
-        position: absolute;
-        width: 132px;
-        height: 9px;
-        left: 0px;
-        top: -1px;
-        font-size: 14px;
-        line-height: 15px;
-        display: flex;
-        align-items: center;
-        letter-spacing: -0.008em;
-        /* $cor-txt */
-        color: #AEABAA;
-    }
-    
-    .unidade select {
-        position: absolute;
-        width: 154px;
-        height: 22px;
-        left: 191px;
-        top: 47px;
-        border: 1px solid #EFEDED;
-        box-sizing: border-box;
-        border-radius: 4px;
-        background: #FFFFFF;
-        border: 1px solid rgba(90, 75, 73, 0.1);
-    }
-    
-    .unidade-valor a {
-        position: absolute;
-        width: 69px;
-        height: 9px;
-        left: 87px;
-        top: 57px;
-        font-size: 14px;
-        line-height: 15px;
-        display: flex;
-        align-items: center;
-        letter-spacing: -0.008em;
-        text-decoration: none;
-        color: #5A4B49;
-    }
-    
-    .medidas select {
-        position: absolute;
-        width: 103px;
-        height: 22px;
-        left: 393px;
-        top: 47px;
-        border: 1px solid #EFEDED;
-        box-sizing: border-box;
-        border-radius: 4px;
-        background: #FFFFFF;
-        border: 1px solid rgba(90, 75, 73, 0.1);
-    }
-    
-    .avaliacao {
-        position: absolute;
-        width: 119px;
-        height: 9px;
-        left: 560px;
-        top: 54px;
-        font-size: 14px;
-        line-height: 15px;
-        display: flex;
-        align-items: center;
-        letter-spacing: -0.008em;
-        white-space: nowrap;
-        color: #5A4B49;
-    }
-    
-    .avaliacao a {
-        position: absolute;
-        width: 119px;
-        height: 9px;
-        left: 30px;
-        top: 1px;
-        font-size: 14px;
-        line-height: 15px;
-        display: flex;
-        align-items: center;
-        letter-spacing: -0.008em;
-        white-space: nowrap;
-        color: #5A4B49;
-    }
-    
-    #selecao {
-        padding-top: 4rem;
-        width: 50%;
-        margin: auto;
-    }
-    
-    details summary {
-        width: 100%;
-        padding: 0.5rem 0;
-        position: relative;
-        cursor: pointer;
-        font-size: 1.25rem;
-        font-weight: 300;
-        list-style: none;
-        z-index: 1;
-    }
-    
-    details summary:after {
-        color: black;
-        position: absolute;
-        font-size: 1.75rem;
-        line-height: 0;
-        margin-top: -6.25rem;
-        left: 40rem;
-        right: 0;
-        font-weight: 200;
-        transform-origin: center;
-        transition: 200ms linear;
-    }
-    
-    details summary {
-        outline: 0;
-        outline: none;
-    }
-    
-    details p {
-        font-size: 0.95rem;
-        margin: 0 0 1rem;
-        padding-top: 1rem;
     }
 </style>
 
 <body>
-    <section id="selecao">
-        <details>
-            <summary>
-                <div class='card1'>
-                    <div class="pedido">
-                        <div class="svg">
-                            <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6 7.66668L8.5 10.1667L16.8333 1.83334" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M16 8.5V14.3333C16 14.7754 15.8244 15.1993 15.5118 15.5118C15.1993 15.8244 14.7754 16 14.3333 16H2.66667C2.22464 16 1.80072 15.8244 1.48816 15.5118C1.17559 15.1993 1 14.7754 1 14.3333V2.66667C1 2.22464 1.17559 1.80072 1.48816 1.48816C1.80072 1.17559 2.22464 1 2.66667 1H11.8333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                        </div>
-
-                        <div class="numeroPedido"><i class=""><svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10.4134 6.15846L4.13782 2.53955" stroke="#FF5448" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M13.5511 10.7606V5.18228C13.5509 4.93773 13.4863 4.69754 13.3639 4.48581C13.2416 4.27408 13.0656 4.09826 12.8539 3.97598L7.97286 1.18684C7.76086 1.06444 7.52037 1 7.27557 1C7.03077 1 6.79029 1.06444 6.57829 1.18684L1.69729 3.97598C1.48549 4.09826 1.30958 4.27408 1.18719 4.48581C1.06481 4.69754 1.00025 4.93773 1 5.18228V10.7606C1.00025 11.0051 1.06481 11.2453 1.18719 11.457C1.30958 11.6688 1.48549 11.8446 1.69729 11.9669L6.57829 14.756C6.79029 14.8784 7.03077 14.9429 7.27557 14.9429C7.52037 14.9429 7.76086 14.8784 7.97286 14.756L12.8539 11.9669C13.0656 11.8446 13.2416 11.6688 13.3639 11.457C13.4863 11.2453 13.5509 11.0051 13.5511 10.7606Z" stroke="#FF5448" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M1.18823 4.45734L7.27554 7.97863L13.3628 4.45734" stroke="#FF5448" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M7.27557 14.9998V7.97116" stroke="#FF5448" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg></i>
-                            <a href="">Pedido #17048</a></div>
-                        <div class="status">
-                            <a href=""></a>Pedido entregue!</div>
+    <div class="tabs">
+        <div class="meusPedidos">
+            <div class='card1'>
+                <div class="pedido01">
+                    <div class="svg">
+                        <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6 7.66668L8.5 10.1667L16.8333 1.83334" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M16 8.5V14.3333C16 14.7754 15.8244 15.1993 15.5118 15.5118C15.1993 15.8244 14.7754 16 14.3333 16H2.66667C2.22464 16 1.80072 15.8244 1.48816 15.5118C1.17559 15.1993 1 14.7754 1 14.3333V2.66667C1 2.22464 1.17559 1.80072 1.48816 1.48816C1.80072 1.17559 2.22464 1 2.66667 1H11.8333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
                     </div>
+
+                    <div class="numeroPedido"><i class=""><svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10.4134 6.15846L4.13782 2.53955" stroke="#FF5448" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M13.5511 10.7606V5.18228C13.5509 4.93773 13.4863 4.69754 13.3639 4.48581C13.2416 4.27408 13.0656 4.09826 12.8539 3.97598L7.97286 1.18684C7.76086 1.06444 7.52037 1 7.27557 1C7.03077 1 6.79029 1.06444 6.57829 1.18684L1.69729 3.97598C1.48549 4.09826 1.30958 4.27408 1.18719 4.48581C1.06481 4.69754 1.00025 4.93773 1 5.18228V10.7606C1.00025 11.0051 1.06481 11.2453 1.18719 11.457C1.30958 11.6688 1.48549 11.8446 1.69729 11.9669L6.57829 14.756C6.79029 14.8784 7.03077 14.9429 7.27557 14.9429C7.52037 14.9429 7.76086 14.8784 7.97286 14.756L12.8539 11.9669C13.0656 11.8446 13.2416 11.6688 13.3639 11.457C13.4863 11.2453 13.5509 11.0051 13.5511 10.7606Z" stroke="#FF5448" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M1.18823 4.45734L7.27554 7.97863L13.3628 4.45734" stroke="#FF5448" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M7.27557 14.9998V7.97116" stroke="#FF5448" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg></i>
+                        <a href="">Pedido #17048</a></div>
+                    <div class="status">
+                        <a href=""></a>Pedido entregue!</div>
                 </div>
-                <div class="valores">
-                    <div class="cash-inco1"></div>
-                    <div class="cash-inco2"></div>
+            </div>
+            <div class="valores">
+                <div class="cash-inco1"></div>
+                <div class="cash-inco2"></div>
 
-                    <div class="dinheiro">
-                        <a href=""> R$ 980,00</a>
-                    </div>
-                    <div class="itens">
-                        <a href="">02 itens</a>
-                    </div>
+                <div class="dinheiro">
+                    <a href=""> R$ 980,00</a>
                 </div>
+                <div class="itens">
+                    <a href="">02 itens</a>
+                </div>
+            </div>
 
-                <div class="detalhes">
-                    <ul>
-                        <li><a href="">Mais detalhes</a><i class="icon"><svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div class="tab">
+                <input type="radio" id="tab-1" name="tab-group-1">
+                <label for="tab-1">Mais detalhes<i><svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="#5A4B49" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg></i>
+                </label>
+                <div class="tab close-tab">
+                    <input type="radio" id="tab-close" name="tab-group-1">
+                    <label for="tab-close">Mais detalhes<i class="icon"><svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M9 5L5 1L1 5" stroke="#5A4B49" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    </i></li>
-                    </ul>
+                    </i></label>
                 </div>
-            </summary>
-            <p>
-                <div class="meusPedidos">
 
-
+                <div class="content">
                     <div class="cards1">
                         <div class="icon-cards1">
                             <svg width="21" height="17" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M13.576 1H1V11.8992H13.576V1Z" stroke="#FF5448" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M13.5752 5.19174H16.9288L19.444 7.70693V11.8989H13.5752V5.19174Z" stroke="#FF5448" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M4.77214 16.0911C5.92973 16.0911 6.86813 15.1527 6.86813 13.9951C6.86813 12.8375 5.92973 11.8991 4.77214 11.8991C3.61456 11.8991 2.67615 12.8375 2.67615 13.9951C2.67615 15.1527 3.61456 16.0911 4.77214 16.0911Z" stroke="#FF5448" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M15.6712 16.0911C16.8288 16.0911 17.7672 15.1527 17.7672 13.9951C17.7672 12.8375 16.8288 11.8991 15.6712 11.8991C14.5136 11.8991 13.5752 12.8375 13.5752 13.9951C13.5752 15.1527 14.5136 16.0911 15.6712 16.0911Z" stroke="#FF5448" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                            <a class="frete" href="">Frete:</a>
-                            <a class="valor" href="">R$ 35,10</a>
-                        </div>
-
-                        <div class="envio"><a href="">via SEDEX</a></div>
-
-                        <div class="formasPagamentos">
-                            <a class="valor1" href="">Forma de pagamento:</a>
-                            <a class="valor2" href="">Cartão de Crédito</a>
-                        </div>
-
-                        <div class="entrega">
-                            <a class="valor3" href="">Entregue dia:</a>
-                            <a class="valor4" href="">09/fev</a>
-                        </div>
-
-                        <div class="adicionar">
-                            <a href=""><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8 1V15" stroke="#5A4B49" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M1 8H15" stroke="#5A4B49" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        </a>
-                        </div>
-                    </div>
-                    <div class="cards1">
-                        <div class="icon-cards1">
-                            <svg width="21" height="17" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M13.576 1H1V11.8992H13.576V1Z" stroke="#FF5448" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M13.5752 5.19174H16.9288L19.444 7.70693V11.8989H13.5752V5.19174Z" stroke="#FF5448" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M4.77214 16.0911C5.92973 16.0911 6.86813 15.1527 6.86813 13.9951C6.86813 12.8375 5.92973 11.8991 4.77214 11.8991C3.61456 11.8991 2.67615 12.8375 2.67615 13.9951C2.67615 15.1527 3.61456 16.0911 4.77214 16.0911Z" stroke="#FF5448" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M15.6712 16.0911C16.8288 16.0911 17.7672 15.1527 17.7672 13.9951C17.7672 12.8375 16.8288 11.8991 15.6712 11.8991C14.5136 11.8991 13.5752 12.8375 13.5752 13.9951C13.5752 15.1527 14.5136 16.0911 15.6712 16.0911Z" stroke="#FF5448" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                            <a class="frete" href="">Frete:</a>
-                            <a class="valor" href="">R$ 35,10</a>
-                        </div>
-
-                        <div class="envio"><a href="">via SEDEX</a></div>
-
-                        <div class="formasPagamentos">
-                            <a class="valor1" href="">Forma de pagamento:</a>
-                            <a class="valor2" href="">Cartão de Crédito</a>
-                        </div>
-
-                        <div class="entrega">
-                            <a class="valor3" href="">Entregue dia:</a>
-                            <a class="valor4" href="">09/fev</a>
-                        </div>
-
-                        <div class="adicionar">
-                            <a href=""><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M8 1V15" stroke="#5A4B49" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                          <path d="M1 8H15" stroke="#5A4B49" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M13.576 1H1V11.8992H13.576V1Z" stroke="#FF5448" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M13.5752 5.19174H16.9288L19.444 7.70693V11.8989H13.5752V5.19174Z" stroke="#FF5448" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M4.77214 16.0911C5.92973 16.0911 6.86813 15.1527 6.86813 13.9951C6.86813 12.8375 5.92973 11.8991 4.77214 11.8991C3.61456 11.8991 2.67615 12.8375 2.67615 13.9951C2.67615 15.1527 3.61456 16.0911 4.77214 16.0911Z" stroke="#FF5448" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M15.6712 16.0911C16.8288 16.0911 17.7672 15.1527 17.7672 13.9951C17.7672 12.8375 16.8288 11.8991 15.6712 11.8991C14.5136 11.8991 13.5752 12.8375 13.5752 13.9951C13.5752 15.1527 14.5136 16.0911 15.6712 16.0911Z" stroke="#FF5448" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                           </svg>
-                          </a>
+                            <a class="frete" href="">Frete:</a>
+                            <a class="valor" href="">R$ 35,10</a>
+                        </div>
+
+                        <div class="envio"><a href="">via SEDEX</a></div>
+
+                        <div class="formasPagamentos">
+                            <a class="valor1" href="">Forma de pagamento:</a>
+                            <a class="valor2" href="">Cartão de Crédito</a>
+                        </div>
+
+                        <div class="entrega">
+                            <a class="valor3" href="">Entregue dia:</a>
+                            <a class="valor4" href="">09/fev</a>
+                        </div>
+
+                        <div class="adicionar">
+                            <a href=""><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 1V15" stroke="#5A4B49" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M1 8H15" stroke="#5A4B49" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            </a>
                         </div>
 
 
                     </div>
 
                 </div>
-                </div>
+            </div>
+        </div>
+    </div>
 
-
-                <section>
-
-
-                    <ol class="progress-bar">
-                        <li class="is-complete"><span><a class="state1" href="">Pedido recebido</a> <a class="data-hora1" href="">03/fev 09:33</a></span></li>
-                        <li class="is-complete"><span><a class="state2" href="">Pagamento aprovado</a> <a class="data-hora2"  href="">03/fev 14:33</a></span></li>
-                        <li class="is-complete"><span><a class="state3" href="">Em separação</a> <a class="data-hora3" href="">06/fev 09:13</a></span></li>
-                        <li class="is-complete"><span><a class="state3" href="">Em transporte</a> <a class="data-hora4" href="">08/fev 21:45</a></span></li>
-                        <li class="is-complete"><span><a class="state4" href="">Pedido entregue</a> <a class="data-hora5" href="">09/fev 00:00</a></span></li>
-                    </ol>
-                    <li class="confirmation">
-                        <div class="svg">
-                            <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6 7.66668L8.5 10.1667L16.8333 1.83334" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M16 8.5V14.3333C16 14.7754 15.8244 15.1993 15.5118 15.5118C15.1993 15.8244 14.7754 16 14.3333 16H2.66667C2.22464 16 1.80072 15.8244 1.48816 15.5118C1.17559 15.1993 1 14.7754 1 14.3333V2.66667C1 2.22464 1.17559 1.80072 1.48816 1.48816C1.80072 1.17559 2.22464 1 2.66667 1H11.8333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                        </div><span></span></li>
-                </section>
-                <div class="">
-                    <ul>
-                        <li>
-                            <div class="produto">
-                                <a class="nome-Produto" href="">Elastique</a>
-                                <div class="cash">
-                                    <a class="cash-item" href="">R$ 540,00</a>
-                                </div>
-
-                                <div class="unidade-valor">
-                                    <a href="">01 unidade</a>
-                                </div>
-
-                                <div class="unidade">
-                                    <form action="#">
-                                        <select name="select">
-                              <option value="valor1" selected>Cor: Neutro Rosado</option>
-                              <option value="valor2" >Cor: Neutro Rosado</option>
-                              <option value="valor3">Cor: Neutro Rosado</option>
-                            </select>
-                                    </form>
-                                </div>
-
-                                <div class="medidas">
-                                    <form action="#">
-                                        <select name="select">
-                            <option value="valor1">Tamanho: P</option>
-                            <option value="valor2" selected>Tamanho: M</option>
-                            <option value="valor3">Tamanho: G</option>
-                          </select>
-                                    </form>
-                                </div>
-
-                                <div class="avaliacao">
-                                    <i><svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8.37543 1L10.6544 5.61702L15.7509 6.36194L12.0631 9.95377L12.9334 15.0281L8.37543 12.6311L3.81741 15.0281L4.68771 9.95377L1 6.36194L6.09642 5.61702L8.37543 1Z" stroke="#FF5448" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        </i>
-                                    <a href="">Avalie este produto</a>
-                                </div>
-
-                        </li>
-                        <hr>
-                        <li>
-                            <div class="produto1">
-                                <a class="nome-Produto" href="">Elastique</a>
-                                <div class="cash">
-                                    <a class="cash-item" href="">R$ 540,00</a>
-                                </div>
-
-                                <div class="unidade-valor">
-                                    <a href="">01 unidade</a>
-                                </div>
-
-                                <div class="unidade">
-                                    <form action="#">
-                                        <select name="select">
-                                  <option value="valor1" selected>Cor: Neutro Rosado</option>
-                                  <option value="valor2" >Cor: Neutro Rosado</option>
-                                  <option value="valor3">Cor: Neutro Rosado</option>
-                                </select>
-                                    </form>
-                                </div>
-
-                                <div class="medidas">
-                                    <form action="#">
-                                        <select name="select">
-                                <option value="valor1">Tamanho: P</option>
-                                <option value="valor2" selected>Tamanho: M</option>
-                                <option value="valor3">Tamanho: G</option>
-                              </select>
-                                    </form>
-                                </div>
-
-                                <div class="avaliacao">
-                                    <i><svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8.37543 1L10.6544 5.61702L15.7509 6.36194L12.0631 9.95377L12.9334 15.0281L8.37543 12.6311L3.81741 15.0281L4.68771 9.95377L1 6.36194L6.09642 5.61702L8.37543 1Z" stroke="#FF5448" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            </i>
-                                    <a href="">Avalie este produto</a>
-                                </div>
-
-                        </li>
-                    </ul>
-
-            </p>
-
-    </section>
-    <script>
-        $('.dropdown-menu a[data-toggle="tab"]').click(function(e) {
-            e.stopPropagation()
-            $(this).tab('show')
-        })
-    </script>
+    </div>
 
 </body>
 
